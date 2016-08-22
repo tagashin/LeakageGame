@@ -12,10 +12,12 @@ public class GenerateRelationship : MonoBehaviour {
             Vector3 POS2 = new Vector3(this.transform.position.x, this.transform.position.y + 100, this.transform.position.z);
             Vector3 POS3 = new Vector3(this.transform.position.x - 100, this.transform.position.y, this.transform.position.z);
             Vector3 POS4 = new Vector3(this.transform.position.x, this.transform.position.y - 100, this.transform.position.z);
+
             GameObject cobj1 = (GameObject)Instantiate(obj, POS1, Quaternion.identity);
             GameObject cobj2 = (GameObject)Instantiate(obj, POS2, Quaternion.identity);
             GameObject cobj3 = (GameObject)Instantiate(obj, POS3, Quaternion.identity);
             GameObject cobj4 = (GameObject)Instantiate(obj, POS4, Quaternion.identity);
+
             cobj1.transform.SetParent(pobj.transform);
             cobj2.transform.SetParent(pobj.transform);
             cobj3.transform.SetParent(pobj.transform);
