@@ -10,6 +10,7 @@ public class GenerateRelationship3D6 : MonoBehaviour {
     public float do330 = 330 * Mathf.Deg2Rad;
 
 
+
     // Use this for initialization
     void Start () {
         StartCoroutine(main());
