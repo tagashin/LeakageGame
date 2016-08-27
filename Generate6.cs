@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GenerateRelationship3D6 : MonoBehaviour {
+public class Generate6 : MonoBehaviour {
     public GameObject obj;
     public GameObject pobj;
     public float do30 = 30 * Mathf.Deg2Rad;
@@ -9,14 +9,20 @@ public class GenerateRelationship3D6 : MonoBehaviour {
     public float do210 = 210 * Mathf.Deg2Rad;
     public float do330 = 330 * Mathf.Deg2Rad;
 
-
-
+    public GameObject obj1;
+    public GameObject obj2;
+    public GameObject obj3;
+    public GameObject obj4;
+    public GameObject obj5;
+    public GameObject obj6;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         StartCoroutine(main());
     }
     // Update is called once per frame
-    void Update(){
+    void Update()
+    {
 
     }
 
@@ -24,8 +30,6 @@ public class GenerateRelationship3D6 : MonoBehaviour {
     {
         if ((transform.position.x < 300) && (transform.position.x > -300) && (transform.position.z < 150) && (transform.position.z > -150))
         {
-            pobj = this.gameObject;
-
             //オブジェクト配置用のPOS// //上 //右上 //右下 //下 //左下 //左上
             Vector3 POS1 = new Vector3(transform.position.x, transform.position.y, transform.position.z + 50);
             Vector3 POS2 = new Vector3(transform.position.x + Mathf.Cos(do30) * 50, transform.position.y, transform.position.z + Mathf.Sin(do30) * 50);
@@ -53,8 +57,8 @@ public class GenerateRelationship3D6 : MonoBehaviour {
             yield return new WaitForSeconds(waittimecount());
             if (Physics.Raycast(ray1, 60f) == false)
             {
-                GameObject cobj1 = (GameObject)Instantiate(obj, POS1, Quaternion.identity);
-                cobj1.transform.SetParent(pobj.transform);
+                obj1 = (GameObject)Instantiate(obj, POS1, Quaternion.identity);
+
                 Debug.DrawRay(ray1.origin, ray1.direction * 60, Color.red, 1, false);
             }
             else
@@ -65,8 +69,8 @@ public class GenerateRelationship3D6 : MonoBehaviour {
             yield return new WaitForSeconds(waittimecount());
             if (Physics.Raycast(ray2, 60f) == false)
             {
-                GameObject cobj2 = (GameObject)Instantiate(obj, POS2, Quaternion.identity);
-                cobj2.transform.SetParent(pobj.transform);
+                obj2 = (GameObject)Instantiate(obj, POS2, Quaternion.identity);
+
                 Debug.DrawRay(ray2.origin, ray2.direction * 60, Color.red, 1, false);
             }
             else
@@ -77,8 +81,8 @@ public class GenerateRelationship3D6 : MonoBehaviour {
             yield return new WaitForSeconds(waittimecount());
             if (Physics.Raycast(ray3, 60f) == false)
             {
-                GameObject cobj3 = (GameObject)Instantiate(obj, POS3, Quaternion.identity);
-                cobj3.transform.SetParent(pobj.transform);
+                obj3 = (GameObject)Instantiate(obj, POS3, Quaternion.identity);
+
                 Debug.DrawRay(ray3.origin, ray3.direction * 60, Color.red, 1, false);
             }
             else
@@ -89,8 +93,8 @@ public class GenerateRelationship3D6 : MonoBehaviour {
             yield return new WaitForSeconds(waittimecount());
             if (Physics.Raycast(ray4, 60f) == false)
             {
-                GameObject cobj4 = (GameObject)Instantiate(obj, POS4, Quaternion.identity);
-                cobj4.transform.SetParent(pobj.transform);
+                obj4 = (GameObject)Instantiate(obj, POS4, Quaternion.identity);
+
                 Debug.DrawRay(ray4.origin, ray4.direction * 60, Color.red, 1, false);
             }
             else
@@ -101,8 +105,8 @@ public class GenerateRelationship3D6 : MonoBehaviour {
             yield return new WaitForSeconds(waittimecount());
             if (Physics.Raycast(ray5, 60f) == false)
             {
-                GameObject cobj5 = (GameObject)Instantiate(obj, POS5, Quaternion.identity);
-                cobj5.transform.SetParent(pobj.transform);
+                obj5 = (GameObject)Instantiate(obj, POS5, Quaternion.identity);
+
                 Debug.DrawRay(ray5.origin, ray5.direction * 60, Color.red, 1, false);
             }
             else
@@ -113,8 +117,8 @@ public class GenerateRelationship3D6 : MonoBehaviour {
             yield return new WaitForSeconds(waittimecount());
             if (Physics.Raycast(ray6, 60f) == false)
             {
-                GameObject cobj6 = (GameObject)Instantiate(obj, POS6, Quaternion.identity);
-                cobj6.transform.SetParent(pobj.transform);
+                obj6 = (GameObject)Instantiate(obj, POS6, Quaternion.identity);
+
                 Debug.DrawRay(ray6.origin, ray6.direction * 60, Color.red, 1, false);
             }
             else
@@ -155,6 +159,6 @@ public class GenerateRelationship3D6 : MonoBehaviour {
         float count = Random.Range(5.0f,9.5f);
         return count;
         */
-        return 2f;
+        return 0.5f;
     }
 }
