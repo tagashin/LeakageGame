@@ -38,9 +38,6 @@ public class Generate6 : MonoBehaviour {
     {
         LineParentObj = GameObject.Find("LineParent");
         //StartCoroutine(main());
-
-        if ((transform.position.x < 300) && (transform.position.x > -300) && (transform.position.z < 150) && (transform.position.z > -150))
-        {
             //オブジェクト配置用のPOS// //上 //右上 //右下 //下 //左下 //左上
             Vector3 POS1 = new Vector3(transform.position.x, transform.position.y, transform.position.z + 50);
             Vector3 POS2 = new Vector3(transform.position.x + Mathf.Cos(do30) * 50, transform.position.y, transform.position.z + Mathf.Sin(do30) * 50);
@@ -227,12 +224,11 @@ public class Generate6 : MonoBehaviour {
             {
                 Debug.DrawRay(ray6.origin, ray6.direction * 60, Color.white, 1, false);
             }
-        }
     }
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("finish");
+        
     }
     /*
     IEnumerator main()
@@ -463,7 +459,6 @@ public class Generate6 : MonoBehaviour {
     }
     void randomobj()
     {
-        /*
         int i = Random.Range(0,6);
         switch (i)
         {
@@ -486,11 +481,9 @@ public class Generate6 : MonoBehaviour {
                 obj = followerobj;
                 break;
         }
-        */
-        obj = obj;
     }
     void randomcounter()
     {
-        randomcount = Random.Range(6,8);
+        randomcount = Random.Range(7,8);
     }
 }
