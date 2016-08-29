@@ -66,6 +66,38 @@ public class LeakageMotion : MonoBehaviour {
                     scalesize = 5 * 2;
                     arrow.transform.localScale = new Vector3(5, 5, scalesize);
                 }
+                if (gameObject.GetComponent<Relationship6>().Obj_LowerRight != null)
+                {
+                    GameObject arrow = (GameObject)Instantiate(arrowobj, POS3, Qua3);
+                    obj = this.gameObject.GetComponent<Relationship6>().Obj_LowerRight;
+                    scalesize = checkspeed(obj);
+                    scalesize = 5 * 2;
+                    arrow.transform.localScale = new Vector3(5, 5, scalesize);
+                }
+                if (gameObject.GetComponent<Relationship6>().Obj_Under != null)
+                {
+                    GameObject arrow = (GameObject)Instantiate(arrowobj, POS4, Qua4);
+                    obj = this.gameObject.GetComponent<Relationship6>().Obj_Under;
+                    scalesize = checkspeed(obj);
+                    scalesize = 5 * 2;
+                    arrow.transform.localScale = new Vector3(5, 5, scalesize);
+                }
+                if (gameObject.GetComponent<Relationship6>().Obj_LowerLeft != null)
+                {
+                    GameObject arrow = (GameObject)Instantiate(arrowobj, POS5, Qua5);
+                    obj = this.gameObject.GetComponent<Relationship6>().Obj_LowerLeft;
+                    scalesize = checkspeed(obj);
+                    scalesize = 5 * 2;
+                    arrow.transform.localScale = new Vector3(5, 5, scalesize);
+                }
+                if (gameObject.GetComponent<Relationship6>().Obj_UpperLeft != null)
+                {
+                    GameObject arrow = (GameObject)Instantiate(arrowobj, POS6, Qua6);
+                    obj = this.gameObject.GetComponent<Relationship6>().Obj_UpperLeft;
+                    scalesize = checkspeed(obj);
+                    scalesize = 5 * 2;
+                    arrow.transform.localScale = new Vector3(5, 5, scalesize);
+                }
                 oneshot = true;
             }
         }
@@ -74,7 +106,6 @@ public class LeakageMotion : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider)
     {
-        Debug.Log(this.gameObject.GetComponent<Renderer>().materials[1]);
         if (collider.gameObject.CompareTag("arrow"))
         {
             this.gameObject.GetComponent<Renderer>().materials[1].color = Color.red;
