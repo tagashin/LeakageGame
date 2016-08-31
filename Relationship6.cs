@@ -2,12 +2,12 @@
 using System.Collections;
 
 public class Relationship6 : MonoBehaviour {
-    public GameObject Obj_Up;
-    public GameObject Obj_UpperRight;
-    public GameObject Obj_LowerRight;
-    public GameObject Obj_Under;
-    public GameObject Obj_LowerLeft;
-    public GameObject Obj_UpperLeft;
+    public GameObject Obj_Up = null;
+    public GameObject Obj_UpperRight = null;
+    public GameObject Obj_LowerRight = null;
+    public GameObject Obj_Under = null;
+    public GameObject Obj_LowerLeft = null;
+    public GameObject Obj_UpperLeft = null;
 	// Use this for initialization
 	void Start () {
 	
