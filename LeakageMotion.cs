@@ -108,8 +108,12 @@ public class LeakageMotion : MonoBehaviour {
     {
         if (collider.gameObject.CompareTag("arrow"))
         {
-            this.gameObject.GetComponent<Renderer>().materials[1].color = Color.red;
-            leakage = true;
+            if (leakage == false)
+            {
+                this.gameObject.GetComponent<Renderer>().materials[1].color = Color.red;
+                leakage = true;
+                collider.gameObject.GetComponent<ArrowMotion>().stop = true;
+            }
         }
     }
 

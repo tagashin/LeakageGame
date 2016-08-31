@@ -86,6 +86,8 @@ public class GenerateCult : MonoBehaviour {
             else
             {
                 Debug.DrawRay(ray1.origin, ray1.direction * 60, Color.white, 1, false);
+                Relationship6 myrela = GetComponent<Relationship6>();
+                myrela.Obj_Up = null;
             }
             //右上のオブジェクト用
             //yield return new WaitForSeconds(waittimecount());
@@ -114,6 +116,8 @@ public class GenerateCult : MonoBehaviour {
             else
             {
                 Debug.DrawRay(ray2.origin, ray2.direction * 60, Color.white, 1, false);
+                Relationship6 myrela = GetComponent<Relationship6>();
+                myrela.Obj_UpperRight = null;
             }
             //右下のオブジェクト用
             //yield return new WaitForSeconds(waittimecount());
@@ -141,6 +145,8 @@ public class GenerateCult : MonoBehaviour {
             else
             {
                 Debug.DrawRay(ray3.origin, ray3.direction * 60, Color.white, 1, false);
+                Relationship6 myrela = GetComponent<Relationship6>();
+                myrela.Obj_LowerRight = null;
             }
             //下のオブジェクト用
             //yield return new WaitForSeconds(waittimecount());
@@ -168,6 +174,8 @@ public class GenerateCult : MonoBehaviour {
             else
             {
                 Debug.DrawRay(ray4.origin, ray4.direction * 60, Color.white, 1, false);
+                Relationship6 myrela = GetComponent<Relationship6>();
+                myrela.Obj_Under = null;
             }
             //左下のオブジェクト用
             //yield return new WaitForSeconds(waittimecount());
@@ -195,6 +203,8 @@ public class GenerateCult : MonoBehaviour {
             else
             {
                 Debug.DrawRay(ray5.origin, ray5.direction * 60, Color.white, 1, false);
+                Relationship6 myrela = GetComponent<Relationship6>();
+                myrela.Obj_LowerLeft = null;
             }
             //左上のオブジェクト用
             //yield return new WaitForSeconds(waittimecount());
@@ -222,6 +232,8 @@ public class GenerateCult : MonoBehaviour {
             else
             {
                 Debug.DrawRay(ray6.origin, ray6.direction * 60, Color.white, 1, false);
+                Relationship6 myrela = GetComponent<Relationship6>();
+                myrela.Obj_UpperLeft = null;
             }
         }
     }
