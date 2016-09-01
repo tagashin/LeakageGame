@@ -237,6 +237,8 @@ public class Generate6 : MonoBehaviour
             Relationship6 myrela = GetComponent<Relationship6>();
             myrela.Obj_UpperLeft = null;
         }
+        this.gameObject.GetComponent<Renderer>().materials[1].color = Color.red;
+        GetComponent<LeakageMotion>().leakage = true;
     }
     // Update is called once per frame
     void Update()

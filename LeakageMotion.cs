@@ -8,6 +8,32 @@ public class LeakageMotion : MonoBehaviour {
     public GameObject arrowobj;
     private GameObject obj;
 
+    public enum Pattern
+    {
+        IFriend,
+        ITeacher,
+        IParent,
+        ISenior,
+        ILinefriend,
+        IFollower,
+        FriendFriend,
+        FriendTeacher,
+        FriendSenior,
+        FriendOther,
+        TeacherFriend,
+        TeacherSenior,
+        TeacherHeadmaster,
+        ParentRelative,
+        SeniorFriend,
+        SeniorCult,
+        SeniorSenior,
+        SeniorOther,
+        Other,
+        Believer,
+        FollowerTwitteruser,
+        TwitteruserTwitteruser
+    }
+
     public float do30 = 30 * Mathf.Deg2Rad;
     public float do150 = 150 * Mathf.Deg2Rad;
     public float do210 = 210 * Mathf.Deg2Rad;
@@ -49,13 +75,14 @@ public class LeakageMotion : MonoBehaviour {
             if (leakage == true)
             {
                 float scalesize;
+                float i = 5;
                 //上 //右上 //右下 //下 //左下 //左上
                 if (gameObject.GetComponent<Relationship6>().Obj_Up != null)
                 {
                     GameObject arrow = (GameObject)Instantiate(arrowobj, POS1, Qua1);
                     obj = this.gameObject.GetComponent<Relationship6>().Obj_Up;
                     scalesize = checkspeed(obj);
-                    scalesize = 5 * 2;
+                    //scalesize = i;
                     arrow.transform.localScale = new Vector3(5,5,scalesize);
                 }
                 if (gameObject.GetComponent<Relationship6>().Obj_UpperRight != null)
@@ -63,7 +90,7 @@ public class LeakageMotion : MonoBehaviour {
                     GameObject arrow = (GameObject)Instantiate(arrowobj, POS2, Qua2);
                     obj = this.gameObject.GetComponent<Relationship6>().Obj_UpperRight;
                     scalesize = checkspeed(obj);
-                    scalesize = 5 * 2;
+                    //scalesize = i;
                     arrow.transform.localScale = new Vector3(5, 5, scalesize);
                 }
                 if (gameObject.GetComponent<Relationship6>().Obj_LowerRight != null)
@@ -71,7 +98,7 @@ public class LeakageMotion : MonoBehaviour {
                     GameObject arrow = (GameObject)Instantiate(arrowobj, POS3, Qua3);
                     obj = this.gameObject.GetComponent<Relationship6>().Obj_LowerRight;
                     scalesize = checkspeed(obj);
-                    scalesize = 5 * 2;
+                    //scalesize = i;
                     arrow.transform.localScale = new Vector3(5, 5, scalesize);
                 }
                 if (gameObject.GetComponent<Relationship6>().Obj_Under != null)
@@ -79,7 +106,7 @@ public class LeakageMotion : MonoBehaviour {
                     GameObject arrow = (GameObject)Instantiate(arrowobj, POS4, Qua4);
                     obj = this.gameObject.GetComponent<Relationship6>().Obj_Under;
                     scalesize = checkspeed(obj);
-                    scalesize = 5 * 2;
+                    //scalesize = i;
                     arrow.transform.localScale = new Vector3(5, 5, scalesize);
                 }
                 if (gameObject.GetComponent<Relationship6>().Obj_LowerLeft != null)
@@ -87,7 +114,7 @@ public class LeakageMotion : MonoBehaviour {
                     GameObject arrow = (GameObject)Instantiate(arrowobj, POS5, Qua5);
                     obj = this.gameObject.GetComponent<Relationship6>().Obj_LowerLeft;
                     scalesize = checkspeed(obj);
-                    scalesize = 5 * 2;
+                    //scalesize = i;
                     arrow.transform.localScale = new Vector3(5, 5, scalesize);
                 }
                 if (gameObject.GetComponent<Relationship6>().Obj_UpperLeft != null)
@@ -95,7 +122,7 @@ public class LeakageMotion : MonoBehaviour {
                     GameObject arrow = (GameObject)Instantiate(arrowobj, POS6, Qua6);
                     obj = this.gameObject.GetComponent<Relationship6>().Obj_UpperLeft;
                     scalesize = checkspeed(obj);
-                    scalesize = 5 * 2;
+                    //scalesize = i;
                     arrow.transform.localScale = new Vector3(5, 5, scalesize);
                 }
                 oneshot = true;
@@ -122,53 +149,58 @@ public class LeakageMotion : MonoBehaviour {
         float speed = 0f;
         if (this.gameObject.CompareTag("i"))
         {
-            if (obj.CompareTag("friend")) speed = PlayerPrefs.GetFloat("i-friend");
-            if (obj.CompareTag("teacher")) speed = PlayerPrefs.GetFloat("i-teacher");
-            if (obj.CompareTag("parent")) speed = PlayerPrefs.GetFloat("i-parent");
-            if (obj.CompareTag("senior")) speed = PlayerPrefs.GetFloat("i-senior");
-            if (obj.CompareTag("linefriend")) speed = PlayerPrefs.GetFloat("i-linefriend");
-            if (obj.CompareTag("follower")) speed = PlayerPrefs.GetFloat("i-follower");
+            if (obj.CompareTag("friend")) speed = GetScale(Pattern.IFriend);
+            if (obj.CompareTag("teacher")) speed = GetScale(Pattern.ITeacher);
+            if (obj.CompareTag("parent")) speed = GetScale(Pattern.IParent);
+            if (obj.CompareTag("senior")) speed = GetScale(Pattern.ISenior);
+            if (obj.CompareTag("linefriend")) speed = GetScale(Pattern.ILinefriend);
+            if (obj.CompareTag("follower")) speed = GetScale(Pattern.IFollower);
         }
         else if(this.gameObject.CompareTag("friend"))
         {
-            if (obj.CompareTag("friend")) speed = PlayerPrefs.GetFloat("friend-friend");
-            if (obj.CompareTag("teacher")) speed = PlayerPrefs.GetFloat("friend-teacher");
-            if (obj.CompareTag("senior")) speed = PlayerPrefs.GetFloat("friend-senior");
-            if (obj.CompareTag("other")) speed = PlayerPrefs.GetFloat("friend-other");
+            if (obj.CompareTag("friend")) speed = GetScale(Pattern.FriendFriend);
+            if (obj.CompareTag("teacher")) speed = GetScale(Pattern.FriendTeacher);
+            if (obj.CompareTag("senior")) speed = GetScale(Pattern.FriendSenior);
+            if (obj.CompareTag("other")) speed = GetScale(Pattern.FriendSenior);
         }
         else if(this.gameObject.CompareTag("teacher"))
         {
-            if (obj.CompareTag("friend")) speed = PlayerPrefs.GetFloat("teacher-friend");
-            if (obj.CompareTag("senior")) speed = PlayerPrefs.GetFloat("teacher-senior");
-            if (obj.CompareTag("headmaster")) speed = PlayerPrefs.GetFloat("teacher-headmaster");
+            if (obj.CompareTag("friend")) speed = GetScale(Pattern.TeacherFriend);
+            if (obj.CompareTag("senior")) speed = GetScale(Pattern.TeacherSenior);
+            if (obj.CompareTag("headmaster")) speed = GetScale(Pattern.TeacherHeadmaster);
         }
         else if(this.gameObject.CompareTag("parent"))
         {
-            if (obj.CompareTag("relative")) speed = PlayerPrefs.GetFloat("parent-relative");
+            if (obj.CompareTag("relative")) speed = GetScale(Pattern.ParentRelative);
         }
         else if(this.gameObject.CompareTag("senior"))
         {
-            if (obj.CompareTag("friend")) speed = PlayerPrefs.GetFloat("senior-friend");
-            if (obj.CompareTag("cult")) speed = PlayerPrefs.GetFloat("senior-cult");
-            if (obj.CompareTag("senior")) speed = PlayerPrefs.GetFloat("senior-senior");
-            if (obj.CompareTag("other")) speed = PlayerPrefs.GetFloat("senior-other");
+            if (obj.CompareTag("friend")) speed = GetScale(Pattern.SeniorFriend);
+            if (obj.CompareTag("cult")) speed = GetScale(Pattern.SeniorCult);
+            if (obj.CompareTag("senior")) speed = GetScale(Pattern.SeniorSenior);
+            if (obj.CompareTag("other")) speed = GetScale(Pattern.SeniorOther);
         }
         else if(this.gameObject.CompareTag("linefriend") || this.gameObject.CompareTag("other") || this.gameObject.CompareTag("relative"))
         {
-            if (obj.CompareTag("other")) speed = PlayerPrefs.GetFloat("-other");
+            if (obj.CompareTag("other")) speed = GetScale(Pattern.Other);
         }
         else if(this.gameObject.CompareTag("cult") || this.gameObject.CompareTag("believer"))
         {
-            if (obj.CompareTag("believer")) speed = PlayerPrefs.GetFloat("-believer");
+            if (obj.CompareTag("believer")) speed = GetScale(Pattern.Believer);
         }
         else if(this.gameObject.CompareTag("follower"))
         {
-            if (obj.CompareTag("twitteruser")) speed = PlayerPrefs.GetFloat("follower-twitteruser");
+            if (obj.CompareTag("twitteruser")) speed = GetScale(Pattern.FollowerTwitteruser);
         }
         else if(this.gameObject.CompareTag("twitteruser"))
         {
-            if (obj.CompareTag("twitteruser")) speed = PlayerPrefs.GetFloat("twitteruser-twitteruser");
+            if (obj.CompareTag("twitteruser")) speed = GetScale(Pattern.TwitteruserTwitteruser);
         }
         return speed;
+    }
+    float GetScale(Pattern P)
+    {
+        string key = P.ToString();
+        return PlayerPrefs.GetFloat(key);
     }
 }
