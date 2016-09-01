@@ -140,6 +140,9 @@ public class LeakageMotion : MonoBehaviour {
                 this.gameObject.GetComponent<Renderer>().materials[1].color = Color.red;
                 leakage = true;
                 collider.gameObject.GetComponent<ArrowMotion>().stop = true;
+                GameObject Cobj = GameObject.Find("CountObject");
+                Cobj.GetComponent<Count>().count++;
+                Cobj.GetComponent<Count>().NPOS = this.gameObject.transform.position;
             }
         }
     }
